@@ -12,7 +12,7 @@ import MBFaker
 
 class CBCreateContactJob: CBAsyncJob {
 
-  override func performWithCompletion(block: ((result: EDQueueResult) -> Void)) {
+  override func performWithCompletion(_ block: ((_ result: EDQueueResult) -> Void)) {
     let ab = RHAddressBook()
     let p = ab.newPersonInDefaultSource()
     if probably(2) {
@@ -24,7 +24,7 @@ class CBCreateContactJob: CBAsyncJob {
     block(result: EDQueueResult.Success)
   }
   
-  func populatePerson(person: RHPerson) {
+  func populatePerson(_ person: RHPerson) {
     person.kind = kABPersonKindPerson
     person.firstName = MBFakerName.firstName()
     person.lastName = MBFakerName.lastName()
@@ -37,7 +37,7 @@ class CBCreateContactJob: CBAsyncJob {
     if probably(10)  {  person.setImage(fetchPersonImage()) }
   }
 
-  func populateOrganisation(person: RHPerson) {
+  func populateOrganisation(_ person: RHPerson) {
     person.kind = kABPersonKindOrganization
     person.organization = MBFakerCompany.name()
       .stringByReplacingOccurrencesOfString(" address.suffix", withString: "")
@@ -47,7 +47,7 @@ class CBCreateContactJob: CBAsyncJob {
     person.setImage(fetchOrganisationImage())
   }
   
-  func probably(n: Int) -> Bool {
+  func probably(_ n: Int) -> Bool {
     return Int(arc4random_uniform(100)) < n
   }
   

@@ -13,12 +13,12 @@ class CBAsyncJob {
   
   var data : Dictionary<String, Int> = [:]
   
-  func initWithData(jobData: Dictionary<String, Int>) -> CBAsyncJob {
+  func initWithData(_ jobData: Dictionary<String, Int>) -> CBAsyncJob {
     data = jobData
     return self
   }
   
-  func performWithCompletion(block: ((result: EDQueueResult) -> Void)) {
+  func performWithCompletion(_ block: ((_ result: EDQueueResult) -> Void)) {
     block(result: EDQueueResult.Success);
   }
   

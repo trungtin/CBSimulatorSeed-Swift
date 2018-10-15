@@ -221,9 +221,11 @@
 					283E547D1946FF7E00F756A9 = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = VMD74XU962;
+						LastSwiftMigration = 0830;
 					};
 					283E548F1946FF7E00F756A9 = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0830;
 						TestTargetID = 283E547D1946FF7E00F756A9;
 					};
 				};
@@ -445,6 +447,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CBSimulatorSeed/CBSimulatorSeed-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -464,6 +467,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cristianbica.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CBSimulatorSeed/CBSimulatorSeed-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -485,6 +489,7 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cristianbica.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -502,6 +507,7 @@
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cristianbica.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;

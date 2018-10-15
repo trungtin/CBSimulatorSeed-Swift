@@ -10,7 +10,7 @@ import EDQueue
 
 class CBSeedJob: CBAsyncJob {
   
-  override func performWithCompletion(block: ((result: EDQueueResult) -> Void)) {
+  override func performWithCompletion(_ block: ((_ result: EDQueueResult) -> Void)) {
     dispatch_async(dispatch_get_main_queue(), {
       if self.data["delete-contacts"] == 1 {
         EDQueue.sharedInstance().enqueueWithData([:], forTask: "delete_contacts")

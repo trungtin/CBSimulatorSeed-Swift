@@ -11,7 +11,7 @@ import EDQueue
 
 class CBDeleteContactsJob: CBAsyncJob {
   
-  override func performWithCompletion(block: ((result: EDQueueResult) -> Void)) {
+  override func performWithCompletion(_ block: ((_ result: EDQueueResult) -> Void)) {
     let ab = RHAddressBook()
     for person : AnyObject in ab.people() {
       ab.removePerson(person as! RHPerson)

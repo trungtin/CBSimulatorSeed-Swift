@@ -12,11 +12,11 @@ import AssetsLibrary
 
 class CBCreatePhotoJob: CBAsyncJob {
 
-  override func performWithCompletion(block: ((result: EDQueueResult) -> Void)) {
+  override func performWithCompletion(_ block: ((_ result: EDQueueResult) -> Void)) {
     let library : ALAssetsLibrary = ALAssetsLibrary()
-    let imageData : NSData = NSData(contentsOfURL: NSURL(string: "http://lorempixel.com/640/960")!)!
+    let imageData : Data = try! Data(contentsOf: URL(string: "http://lorempixel.com/640/960")!)
     library.writeImageDataToSavedPhotosAlbum(imageData, metadata: nil, completionBlock:{
-      (assetURL: NSURL!, error: NSError!) -> Void in
+      (assetURL: URL!, error: NSError!) -> Void in
       block(result: EDQueueResult.Success);
     })
   }

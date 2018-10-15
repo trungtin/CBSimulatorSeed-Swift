@@ -22,13 +22,13 @@ class ViewController: UITableViewController, EDQueueDelegate {
   var totalJobs : Int = 0
   var doneJobs : Int = 0
   
-  @IBAction func contactsCountSliderValueChanged(sender : AnyObject) {
+  @IBAction func contactsCountSliderValueChanged(_ sender : AnyObject) {
     let val = roundf(self.contactsSlider!.value)
     contactsSlider!.value = val
     contactsCountLabel!.text = String(Int(val))
   }
   
-  @IBAction func photosCountSliderValueChanged(sender : AnyObject) {
+  @IBAction func photosCountSliderValueChanged(_ sender : AnyObject) {
     let val = roundf(self.photosSlider!.value)
     photosSlider!.value = val
     photosCountLabel!.text = String(Int(val))
@@ -39,8 +39,8 @@ class ViewController: UITableViewController, EDQueueDelegate {
     EDQueue.sharedInstance().delegate = self
     EDQueue.sharedInstance().empty()
     EDQueue.sharedInstance().start()
-    NSNotificationCenter.defaultCenter().addObserverForName(EDQueueJobDidSucceed, object: nil, queue: nil, usingBlock:{
-      (notification: NSNotification) -> () in
+    NotificationCenter.defaultCenter().addObserverForName(EDQueueJobDidSucceed, object: nil, queue: nil, usingBlock:{
+      (notification: Notification) -> () in
       let jobTask : String = notification.object!.valueForKey("task") as! String
       switch  jobTask {
       case "seed":
@@ -60,8 +60,8 @@ class ViewController: UITableViewController, EDQueueDelegate {
     })
   }
   
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    if tableView.cellForRowAtIndexPath(indexPath)!.tag == 501 {
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    if tableView.cellForRow(at: indexPath)!.tag == 501 {
       seed()
     }
   }
@@ -80,7 +80,7 @@ class ViewController: UITableViewController, EDQueueDelegate {
       }
     });
   }
-  func queue(queue: EDQueue!, processJob job: [NSObject : AnyObject]!, completion block: EDQueueCompletionBlock!) {
+  func queue(_ queue: EDQueue!, processJob job: [AnyHashable: Any]!, completion block: EDQueueCompletionBlock!) {
     NSLog("GOT JOB: \(job)")
     let jobTask : String = job["task"] as! String
     var aJob : CBAsyncJob?
